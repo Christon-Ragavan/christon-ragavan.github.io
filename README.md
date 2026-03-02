@@ -44,5 +44,5 @@
 
 
 
-* __[Personal Blog Link](https://christon.github.io/)__
+* __[Personal Blog Link](https://christon-ragavan.github.io/)__
 
