@@ -54,12 +54,6 @@ mathjax: "true"
 
 
 
-# Citations 
-[1] Machucho, Ruben, and David Ortiz. "The impacts of artificial intelligence on business innovation: A comprehensive review of applications, organizational challenges, and ethical considerations." Systems 13.4 (2025): 264.
-[2] Bharadiya, Jasmin Praful, Reji Kurien Thomas, and Farhan Ahmed. "Rise of artificial intelligence in business and industry." Journal of Engineering Research and Reports 25.3 (2023): 85-103.
-
-
-
 # Disclaimer
 
 The content on this blog is based on my personal interpretation and understanding of various research papers and publicly available materials. It is intended for informational and educational purposes only.
