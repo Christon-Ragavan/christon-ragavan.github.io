@@ -1,6 +1,7 @@
 ---
 title: CV
 permalink: /cv/
+full: true
 ---
 {%- assign cv = site.data.cv %}
 {%- assign pdf = site.static_files | where: "path", "/assets/files/cv.pdf" | first %}
@@ -13,6 +14,8 @@ permalink: /cv/
   <a class="button quiet" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
 </p>
 
+<div class="cv-layout">
+<div class="cv-main">
 <section class="cv-section" aria-labelledby="experience">
   <h2 id="experience">Experience</h2>
   {%- for job in cv.experience %}
@@ -65,7 +68,8 @@ permalink: /cv/
   {%- endfor %}
 </section>
 
-<section class="cv-section cv-grid" aria-labelledby="skills">
+</div>
+<aside class="cv-side cv-grid" aria-labelledby="skills">
   <div>
     <h2 id="skills">Skills</h2>
     <dl class="skills">
@@ -91,4 +95,5 @@ permalink: /cv/
       {%- endfor %}
     </ul>
   </div>
-</section>
+</aside>
+</div>

@@ -2,24 +2,30 @@
 title: Projects
 permalink: /projects/
 intro: Selected work from client projects and research. Problem, what I did, and the result.
+full: true
 ---
 <div class="projects">
   {%- for p in site.data.projects %}
   <article class="project">
-    <p class="project-meta"><span>{{ p.client }}</span> <time>{{ p.period }}</time></p>
-    <h2>{% if p.link %}<a href="{{ p.link }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h2>
-    <p class="project-role">{{ p.role }}</p>
-    <p>{{ p.summary }}</p>
-    {%- if p.highlights %}
-    <ul>
-      {%- for h in p.highlights %}
-      <li>{{ h }}</li>
-      {%- endfor %}
-    </ul>
-    {%- endif %}
-    {%- if p.stack %}
-    <p class="stack"><span class="visually-hidden">Stack: </span>{{ p.stack | join: ", " }}</p>
-    {%- endif %}
+    <div class="project-side">
+      <p class="project-meta">{{ p.client }}</p>
+      <p class="project-role">{{ p.role }}</p>
+      <p class="project-period"><time>{{ p.period }}</time></p>
+    </div>
+    <div class="project-main">
+      <h2>{% if p.link %}<a href="{{ p.link }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h2>
+      <p>{{ p.summary }}</p>
+      {%- if p.highlights %}
+      <ul>
+        {%- for h in p.highlights %}
+        <li>{{ h }}</li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+      {%- if p.stack %}
+      <p class="stack"><span class="visually-hidden">Stack: </span>{{ p.stack | join: ", " }}</p>
+      {%- endif %}
+    </div>
   </article>
   {%- endfor %}
 </div>
