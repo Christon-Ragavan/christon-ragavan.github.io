@@ -1,0 +1,18 @@
+<div class="aside-card">
+  <img class="aside-photo" src="{{ site.author.photo | relative_url }}" width="240" height="240" alt="Portrait of {{ site.author.short_name }}">
+  <dl class="facts">
+    <dt>Now</dt>
+    <dd>{{ site.author.role }}, {{ site.author.company }}</dd>
+    <dt>Based in</dt>
+    <dd>{{ site.author.location }}</dd>
+    <dt>Focus</dt>
+    <dd>{{ site.data.focus | map: "title" | join: ", " }}</dd>
+    <dt>Languages</dt>
+    <dd>{{ site.data.cv.languages }}</dd>
+  </dl>
+  <p class="aside-actions">
+    <a class="button" href="{{ '/cv/' | relative_url }}">View CV</a>
+    <a class="button quiet" href="{{ '/talk/' | relative_url }}">Let's talk</a>
+  </p>
+  {% include links.html %}
+</div>

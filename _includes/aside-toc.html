@@ -1,0 +1,23 @@
+<nav class="toc" aria-labelledby="toc-title" hidden>
+  <p class="aside-title" id="toc-title">On this page</p>
+  <ol id="toc-list"></ol>
+</nav>
+<script>
+{
+  const heads = [...document.querySelectorAll('.post .prose h2[id], .post .prose h3[id]')];
+  const toc = document.querySelector('.toc');
+  if (toc && heads.length >= 2) {
+    const list = document.getElementById('toc-list');
+    heads.forEach(h => {
+      const li = document.createElement('li');
+      if (h.tagName === 'H3') li.className = 'sub';
+      const a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+    toc.hidden = false;
+  }
+}
+</script>

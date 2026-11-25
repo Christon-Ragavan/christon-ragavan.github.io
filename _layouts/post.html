@@ -6,7 +6,7 @@ layout: default
 {%- assign first_tag = page.tags | first | default: "post" %}
 <article class="post">
   <header class="band">
-  <div class="wrap page-head">
+  <div class="wrap wrap-wide page-head">
     <p class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>,
       {{ minutes }} min read
@@ -25,7 +25,9 @@ layout: default
   </div>
   </header>
 
-  <div class="wrap body">
+  <div class="wrap wrap-wide body">
+  <div class="page-grid">
+  <div class="post-main">
   <div class="prose">
     {{ content }}
   </div>
@@ -41,5 +43,10 @@ layout: default
       {%- endif %}
     </nav>
   </footer>
+  </div>
+  <aside class="page-aside aside-toc">
+    {% include aside-toc.html %}
+  </aside>
+  </div>
   </div>
 </article>

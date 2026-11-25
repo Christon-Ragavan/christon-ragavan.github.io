@@ -11,8 +11,19 @@ layout: default
     </div>
   </header>
   <div class="wrap wrap-wide body">
+    {%- if page.aside %}
+    <div class="page-grid">
+      <div class="prose">
+        {{ content }}
+      </div>
+      <aside class="page-aside aside-{{ page.aside }}">
+        {%- if page.aside == "about" %}{% include aside-about.html %}{% elsif page.aside == "talk" %}{% include aside-talk.html %}{% endif %}
+      </aside>
+    </div>
+    {%- else %}
     <div class="prose{% if page.full %} full{% endif %}">
       {{ content }}
     </div>
+    {%- endif %}
   </div>
 </article>
