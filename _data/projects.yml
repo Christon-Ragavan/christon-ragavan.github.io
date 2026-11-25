@@ -1,10 +1,7 @@
 # Projects on /projects/, shown in this order.
-# Fields: title, industry, tint (card colour: sky, mint, peach, lilac, butter, rose), client, role,
-#         period, summary, highlights (list), stack (list), link (optional)
+# Fields: title, client, role, period, summary, highlights (list), stack (list), link (optional)
 
 - title: AI failure diagnosis for engine alerts
-  industry: Aerospace
-  tint: sky
   client: Aerospace client (engine manufacturer)
   role: Senior ML & Data Solution Architect
   period: 2026 – present
@@ -16,8 +13,6 @@
   stack: [scikit-learn, MLflow, Databricks, PySpark, Delta Lake, H3, Unity Catalog]
 
 - title: Engine health monitoring platform
-  industry: Aerospace
-  tint: sky
   client: Aerospace client (engine manufacturer)
   role: Senior ML & Data Engineer
   period: 2024 – present
@@ -29,8 +24,6 @@
   stack: [Databricks, PySpark, Structured Streaming, Delta Lake, MLflow, Azure ML, Azure Service Bus]
 
 - title: Anomaly detection on full-flight data
-  industry: Aerospace
-  tint: sky
   client: Aerospace client (engine manufacturer)
   role: ML & Data Engineer
   period: 2026 – present
@@ -40,8 +33,6 @@
   stack: [Databricks, PySpark]
 
 - title: Predictive maintenance from flight paths and weather
-  industry: Aerospace
-  tint: sky
   client: Aerospace client (engine manufacturer)
   role: Senior Data Engineer
   period: 2025
@@ -52,8 +43,6 @@
   stack: [Databricks, PySpark, Delta Lake, H3]
 
 - title: Computer vision for print complaints
-  industry: Printing & e-commerce
-  tint: peach
   client: WIRmachenDRUCK
   role: ML Engineer / Solution Architect
   period: 2024
@@ -64,8 +53,6 @@
   stack: [Python, TensorFlow, Hugging Face, YOLO]
 
 - title: RAG service assistant
-  industry: Printing & e-commerce
-  tint: peach
   client: WIRmachenDRUCK
   role: ML Engineer / Solution Architect
   period: 2024
@@ -76,8 +63,6 @@
   stack: [Python, Llama 3, LangChain, LlamaIndex, Chroma]
 
 - title: Anything to order
-  industry: Timber wholesale
-  tint: butter
   client: Holz-Marberger
   role: ML Engineer
   period: 2024
@@ -88,8 +73,6 @@
   stack: [Python, LLMs, Whisper, Azure ML]
 
 - title: Enterprise knowledge-graph platform
-  industry: Public sector & professional services
-  tint: lilac
   client: German Federal Ministry of Education, BDO Group
   role: Lead ML Engineer / Architect
   period: 2023 – 2024
@@ -101,8 +84,6 @@
   stack: [Python, FastAPI, BERT, Llama 2/3, MLflow, MinIO, Docker, Jenkins, MongoDB]
 
 - title: Lecture transcription service
-  industry: Education
-  tint: mint
   client: Nanyang Technological University Singapore
   role: ML Engineer
   period: 2023
@@ -112,8 +93,6 @@
   stack: [Python, Whisper, RabbitMQ, Docker, Redis]
 
 - title: Patient record consolidation
-  industry: Healthcare
-  tint: rose
   client: Siemens Healthineers
   role: ML Engineer
   period: 2022 – 2023
@@ -125,8 +104,6 @@
   stack: [Python, TensorFlow, Med-BERT, HL7 v2, FHIR]
 
 - title: Audio deep learning research
-  industry: Research
-  tint: lilac
   client: Fraunhofer IDMT
   role: Research Associate
   period: 2018 – 2022
@@ -138,8 +115,6 @@
   stack: [Python, TensorFlow, PyTorch]
 
 - title: CAMAT, music analysis toolkit
-  industry: Education
-  tint: mint
   client: University of Music Franz Liszt Weimar
   role: Research Associate
   period: 2021

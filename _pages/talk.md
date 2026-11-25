@@ -1,7 +1,6 @@
 ---
 title: Let's talk
 permalink: /talk/
-tint: lilac
 ---
 
 Stuck on a data or AI problem? Thinking about whether an LLM actually fits your use case? Grab a 30-minute slot. No sales pitch, just a conversation.

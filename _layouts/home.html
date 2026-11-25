@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<section class="hero band tint-sky">
+<section class="hero band">
   <div class="wrap intro">
     <img class="portrait" src="{{ site.author.photo | relative_url }}" width="240" height="240" alt="Portrait of {{ site.author.short_name }}">
     <div class="intro-text">
@@ -17,7 +17,7 @@ layout: default
 
 <section class="wrap focus" aria-label="What I work on">
   {%- for f in site.data.focus %}
-  <div class="focus-item tint-{{ f.tint }}">
+  <div class="focus-item focus-{{ forloop.index }}">
     <h2>{{ f.title }}</h2>
     <p>{{ f.text }}</p>
     <p class="focus-tools">{{ f.tools }}</p>
@@ -52,8 +52,7 @@ layout: default
   <div class="topic-filter" aria-label="Topics" hidden>
     <button type="button" class="chip" aria-pressed="true" data-tag="">All</button>
     {%- for tag in home_tags %}
-    {%- assign tag_slug = tag[0] | slugify %}{%- assign c = site.data.tag_colors[tag_slug] %}{%- if c %}{% else %}{% assign c = tag_slug | size | modulo: 6 %}{% endif %}
-    <button type="button" class="chip tint-{{ c }}" aria-pressed="false" data-tag="{{ tag[0] | slugify }}">#{{ tag[0] | slugify }} <span>{{ tag[1] | size }}</span></button>
+    <button type="button" class="chip" aria-pressed="false" data-tag="{{ tag[0] | slugify }}">#{{ tag[0] | slugify }} <span>{{ tag[1] | size }}</span></button>
     {%- endfor %}
   </div>
 

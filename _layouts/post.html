@@ -4,9 +4,8 @@ layout: default
 {%- assign words = content | strip_html | number_of_words %}
 {%- assign minutes = words | divided_by: 220 | plus: 1 %}
 {%- assign first_tag = page.tags | first | default: "post" %}
-{%- assign tag_slug = first_tag | slugify %}{%- assign tint = site.data.tag_colors[tag_slug] %}{%- if tint %}{% else %}{% assign tint = tag_slug | size | modulo: 6 %}{% endif %}
 <article class="post">
-  <header class="band tint-{{ tint }}">
+  <header class="band">
   <div class="wrap page-head">
     <p class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>,
@@ -19,8 +18,7 @@ layout: default
     {%- if page.tags.size > 0 %}
     <ul class="tags">
       {%- for tag in page.tags %}
-      {%- assign tag_slug = tag | slugify %}{%- assign c = site.data.tag_colors[tag_slug] %}{%- if c %}{% else %}{% assign c = tag_slug | size | modulo: 6 %}{% endif %}
-      <li><a class="tag tint-{{ c }}" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">#{{ tag | slugify }}</a></li>
+      <li><a class="tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">#{{ tag | slugify }}</a></li>
       {%- endfor %}
     </ul>
     {%- endif %}

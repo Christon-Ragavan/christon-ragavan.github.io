@@ -2,15 +2,13 @@
 title: Projects
 permalink: /projects/
 intro: Selected work from client projects and research. Problem, what I did, and the result.
-tint: peach
-wide: true
 ---
 <div class="projects">
   {%- for p in site.data.projects %}
-  <article class="project tint-{{ p.tint | default: 'sky' }}">
-    <p class="project-meta"><span class="industry">{{ p.industry }}</span> <time>{{ p.period }}</time></p>
+  <article class="project">
+    <p class="project-meta"><span>{{ p.client }}</span> <time>{{ p.period }}</time></p>
     <h2>{% if p.link %}<a href="{{ p.link }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h2>
-    <p class="project-role">{{ p.client }}, {{ p.role }}</p>
+    <p class="project-role">{{ p.role }}</p>
     <p>{{ p.summary }}</p>
     {%- if p.highlights %}
     <ul>

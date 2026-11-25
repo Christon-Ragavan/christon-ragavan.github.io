@@ -1,7 +1,6 @@
 ---
 title: About
 permalink: /about/
-tint: mint
 ---
 
 <img class="about-photo" src="{{ site.author.photo | relative_url }}" width="240" height="240" alt="Portrait of Christon">

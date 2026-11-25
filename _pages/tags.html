@@ -1,13 +1,11 @@
 ---
 title: Tags
 permalink: /tags/
-tint: rose
 ---
 {%- assign tags = site.tags | sort %}
 <ul class="tag-index">
   {%- for tag in tags %}
-  {%- assign tag_slug = tag[0] | slugify %}{%- assign c = site.data.tag_colors[tag_slug] %}{%- if c %}{% else %}{% assign c = tag_slug | size | modulo: 6 %}{% endif %}
-  <li><a class="tag tint-{{ c }}" href="#{{ tag[0] | slugify }}">#{{ tag[0] | slugify }} <span>{{ tag[1] | size }}</span></a></li>
+  <li><a class="tag" href="#{{ tag[0] | slugify }}">#{{ tag[0] | slugify }} <span>{{ tag[1] | size }}</span></a></li>
   {%- endfor %}
 </ul>
 

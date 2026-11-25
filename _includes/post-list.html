@@ -23,8 +23,7 @@
       {%- if post.tags.size > 0 %}
       <ul class="tags small">
         {%- for t in post.tags %}
-        {%- assign tag_slug = t | slugify %}{%- assign c = site.data.tag_colors[tag_slug] %}{%- if c %}{% else %}{% assign c = tag_slug | size | modulo: 6 %}{% endif %}
-        <li><span class="tag tint-{{ c }}">#{{ t | slugify }}</span></li>
+        <li><span class="tag">#{{ t | slugify }}</span></li>
         {%- endfor %}
       </ul>
       {%- endif %}
