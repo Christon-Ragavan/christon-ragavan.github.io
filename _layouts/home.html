@@ -2,7 +2,7 @@
 layout: default
 ---
 <section class="hero band">
-  <div class="wrap intro">
+  <div class="wrap wrap-wide intro">
     <img class="portrait" src="{{ site.author.photo | relative_url }}" width="240" height="240" alt="Portrait of {{ site.author.short_name }}">
     <div class="intro-text">
       {{ content }}
@@ -12,10 +12,10 @@ layout: default
       </p>
     </div>
   </div>
-  <div class="wrap">{% include signal.html %}</div>
+  <div class="wrap wrap-wide">{% include signal.html %}</div>
 </section>
 
-<section class="wrap focus" aria-label="What I work on">
+<section class="wrap wrap-wide focus" aria-label="What I work on">
   {%- for f in site.data.focus %}
   <div class="focus-item focus-{{ forloop.index }}">
     <h2>{{ f.title }}</h2>
@@ -33,7 +33,7 @@ layout: default
 {%- assign latest_count = 5 %}
 {%- assign popular_posts = site.posts | where_exp: "p", "p.popular" %}
 {%- assign home_tags = site.tags | sort %}
-<section class="wrap latest" aria-labelledby="writing-title">
+<section class="wrap wrap-wide latest" aria-labelledby="writing-title">
   <div class="section-head">
     <h2 id="writing-title">Writing</h2>
     <a href="{{ '/blog/' | relative_url }}">All posts</a>

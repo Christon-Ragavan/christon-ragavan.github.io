@@ -30,7 +30,7 @@
   --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
 
   --measure: 44rem;
-  --wide: 66rem;
+  --wide: 80rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -56,6 +56,9 @@
 * { min-width: 0; }
 
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: 5rem; }
+/* Scale everything up a little on large monitors */
+@media (min-width: 1680px) { html { font-size: 106.25%; } }
+@media (min-width: 2200px) { html { font-size: 118.75%; } }
 
 body {
   margin: 0;
@@ -142,12 +145,14 @@ h4 { font-size: 1.02rem; }
 
 /* Home: hero ---------------------------------------------------------------- */
 .hero { padding-top: clamp(2.75rem, 7vw, 4.75rem); overflow: hidden; }
-.intro { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 2.25rem; align-items: start; }
+.intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "text photo"; gap: 2.5rem 4rem; align-items: center; }
+.intro-text { grid-area: text; max-width: 46rem; }
+.intro .portrait { grid-area: photo; }
 .portrait {
-  width: 8.5rem; height: 8.5rem; border-radius: 50%; object-fit: cover; margin-top: 0.3rem;
+  width: clamp(11rem, 19vw, 19rem); height: auto; aspect-ratio: 1; border-radius: 50%; object-fit: cover; margin-right: clamp(0rem, 4vw, 4rem);
   border: 5px solid var(--bg); box-shadow: 0 0 0 2px var(--sky-ink), var(--shadow);
 }
-.intro h1 { font-size: clamp(2.3rem, 1.5rem + 3vw, 3.4rem); line-height: 1.04; margin-bottom: 0.35em; }
+.intro h1 { font-size: clamp(2.4rem, 1.4rem + 3.2vw, 4rem); line-height: 1.04; margin-bottom: 0.35em; }
 .intro p { margin: 0 0 1em; }
 .intro .tagline {
   font: 600 clamp(1.2rem, 1rem + 0.8vw, 1.45rem)/1.3 var(--sans); letter-spacing: -0.01em;
@@ -203,6 +208,10 @@ h4 { font-size: 1.02rem; }
 /* Post lists: soft cards --------------------------------------------------- */
 .post-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
 .post-list [hidden] { display: none; }
+@media (min-width: 1000px) {
+  .post-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: stretch; }
+  .post-list > .year { grid-column: 1 / -1; }
+}
 .post-item {
   position: relative;
   display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 0.25rem 1.25rem;
@@ -238,6 +247,8 @@ a.tag:hover { color: var(--on-accent); background: var(--accent); }
 .post-meta { font: 0.92rem/1.4 var(--sans); color: var(--ink); opacity: 0.7; margin: 0 0 0.9rem; }
 
 .prose > :first-child { margin-top: 0; }
+.page .prose:not(.full) { max-width: var(--measure); }
+.page-head .lede, .prose.full > .lede { max-width: 46rem; }
 .prose p, .prose ul, .prose ol, .prose blockquote, .prose table, .prose pre, .prose figure { margin: 0 0 1.25em; }
 .prose ul, .prose ol { padding-left: 1.3em; }
 .prose li { margin-bottom: 0.35em; }
@@ -314,7 +325,11 @@ mjx-container { font-size: 105% !important; }
 .pub-authors, .pub-venue { font-size: 0.98rem; color: var(--muted); }
 .pub-authors strong { color: var(--ink); font-weight: 600; }
 .pub-venue { font-style: italic; }
-.cv-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.cv-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 3.5rem; }
+@media (min-width: 1000px) {
+  .cv-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem); gap: 3.5rem; align-items: start; }
+  .cv-side.cv-grid { grid-template-columns: minmax(0, 1fr); position: sticky; top: 5.5rem; }
+}
 .cv-grid > div { border-radius: 18px; padding: 1.5rem; }
 .cv-grid > div { background: var(--ice); border: 1px solid var(--rule); }
 .cv-grid h2::after { background: currentColor; }
@@ -328,14 +343,16 @@ mjx-container { font-size: 105% !important; }
 .plain li { margin-bottom: 0.9rem; font-size: 1rem; }
 
 /* Projects ----------------------------------------------------------------- */
-.project { padding-block: 1.75rem; border-top: 1px solid var(--rule); }
+.project { display: grid; grid-template-columns: minmax(12rem, 16rem) minmax(0, 1fr); gap: 0.5rem 3rem; padding-block: 2rem; border-top: 1px solid var(--rule); }
 .project:first-child { border-top: 0; padding-top: 0; }
-.project h2 { margin: 0.2rem 0 0.1rem; font-size: 1.35rem; }
+.project-side p { margin: 0 !important; }
+.project-meta { font: 600 0.98rem/1.4 var(--sans); color: var(--accent); }
+.project-role { font: 0.92rem/1.45 var(--sans); color: var(--muted); margin-top: 0.3rem !important; }
+.project-period { font: 0.9rem/1.4 var(--sans); color: var(--muted); margin-top: 0.3rem !important; font-variant-numeric: tabular-nums; }
+.project-main { max-width: var(--measure); }
+.project h2 { margin: 0 0 0.5rem; font-size: 1.35rem; }
 .project h2 a { color: var(--ink); }
 .project h2 a:hover { color: var(--accent); }
-.project-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 1rem; margin: 0 !important; font: 500 0.9rem/1.4 var(--sans); color: var(--accent); }
-.project-meta time { color: var(--muted); font-weight: 400; white-space: nowrap; }
-.project-role { margin: 0 0 0.75rem !important; font: 0.95rem/1.4 var(--sans); color: var(--muted); }
 .project ul { margin-bottom: 0.9rem !important; }
 .project li { font-size: 1.02rem; }
 .stack { margin: 0 !important; font: 0.88rem/1.6 var(--sans); color: var(--muted); }
@@ -343,13 +360,15 @@ mjx-container { font-size: 105% !important; }
 /* Small screens ------------------------------------------------------------ */
 @media (max-width: 860px) {
   .focus { grid-template-columns: minmax(0, 1fr); }
+  .project { grid-template-columns: minmax(0, 1fr); }
+  .intro { grid-template-columns: minmax(0, 1fr); grid-template-areas: "photo" "text"; gap: 1.5rem; }
+  .intro .portrait { width: 8rem; margin: 0; }
 }
 @media (max-width: 640px) {
   body { font-size: 1.0625rem; }
   .site-header { position: static; }
   .site-nav a { padding: 0.45rem 0.65rem; }
-  .intro { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
-  .portrait { width: 6rem; height: 6rem; }
+  .intro .portrait { width: 6.5rem; }
   .signal { height: 72px; }
   .views { display: flex; }
   .views button { flex: 1; padding-inline: 0.5rem; }
