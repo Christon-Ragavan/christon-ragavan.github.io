@@ -1,7 +1,7 @@
 # Site settings ---------------------------------------------------------------
 # Restart `bundle exec jekyll serve` after editing this file.
 
-title: Christon Ragavan
+title: Christon Nadar
 description: >-
   Senior Machine Learning Engineer in Munich. Notes on machine learning,
   LLMs, data platforms and lessons from putting AI into production.
@@ -10,7 +10,7 @@ baseurl: ""
 lang: en
 
 author:
-  name: Christon Ragavan Nadar
+  name: Christon Nadar
   short_name: Christon
   role: Senior Machine Learning Engineer
   company: Cloudflight
