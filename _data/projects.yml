@@ -1,0 +1,125 @@
+# Projects on /projects/, shown in this order.
+# Fields: title, client, role, period, summary, highlights (list), stack (list), link (optional)
+
+- title: AI failure diagnosis for engine alerts
+  client: Aerospace client (engine manufacturer)
+  role: Senior ML & Data Solution Architect
+  period: 2026 – present
+  summary: Most alerts raised by the engine health monitoring system are not high priority, yet engineers had to review each one. An AI layer now estimates which alerts are valid.
+  highlights:
+    - Owned method evaluation, planning and technical execution end to end.
+    - Gaussian mixture models combined with simple time-series regression reach 80% accuracy.
+    - Model-agnostic continuous training, plus Databricks Apps so engineers can analyse alerts.
+  stack: [scikit-learn, MLflow, Databricks, PySpark, Delta Lake, H3, Unity Catalog]
+
+- title: Engine health monitoring platform
+  client: Aerospace client (engine manufacturer)
+  role: Senior ML & Data Engineer
+  period: 2024 – present
+  summary: A live monitoring system for high-volume flight and engine sensor data, with its own model for each aircraft and engine combination.
+  highlights:
+    - Ingestion and processing pipelines for 1,000+ sensor points per engine type every 15 minutes.
+    - Spark tuning (partitioning, caching) made data loading 35% faster.
+    - Architecture for quickly developing and deploying models across several connected projects, with data synced between production, test and development.
+  stack: [Databricks, PySpark, Structured Streaming, Delta Lake, MLflow, Azure ML, Azure Service Bus]
+
+- title: Anomaly detection on full-flight data
+  client: Aerospace client (engine manufacturer)
+  role: ML & Data Engineer
+  period: 2026 – present
+  summary: Anomaly detection models integrated into the health monitoring platform, working on full-flight sensor recordings.
+  highlights:
+    - Recovered usable sequences from time-series data corrupted in transit on the sensor bus.
+  stack: [Databricks, PySpark]
+
+- title: Predictive maintenance from flight paths and weather
+  client: Aerospace client (engine manufacturer)
+  role: Senior Data Engineer
+  period: 2025
+  summary: Estimating the next service cycle from flight paths and atmospheric conditions.
+  highlights:
+    - Ingestion of complex geospatial data.
+    - H3 hexagonal indexing to find the nearest flight coordinates and to engineer atmospheric and surface features.
+  stack: [Databricks, PySpark, Delta Lake, H3]
+
+- title: Computer vision for print complaints
+  client: WIRmachenDRUCK
+  role: ML Engineer / Solution Architect
+  period: 2024
+  summary: A proof of concept that counts particles on photos of complained print products, so claims can be assessed faster and with less manual work.
+  highlights:
+    - Analysed the complaint process and defined the computer-vision use case.
+    - Detection and counting pipeline with CountGD and YOLO, including partially visible and overlapping particles.
+  stack: [Python, TensorFlow, Hugging Face, YOLO]
+
+- title: RAG service assistant
+  client: WIRmachenDRUCK
+  role: ML Engineer / Solution Architect
+  period: 2024
+  summary: A proof of concept for a retrieval-augmented chatbot that answers questions from internal know-how.
+  highlights:
+    - Scoped the work packages, milestones and effort.
+    - Designed the RAG architecture, from ingestion and chunking to embeddings, retrieval and generation.
+  stack: [Python, Llama 3, LangChain, LlamaIndex, Chroma]
+
+- title: Anything to order
+  client: Holz-Marberger
+  role: ML Engineer
+  period: 2024
+  summary: An AI workflow that turns customer order emails into structured orders, later extended to voice and free text.
+  highlights:
+    - LLM-based extraction of customer, products and quantities.
+    - One pipeline for email, voice (speech-to-text) and free-text input.
+  stack: [Python, LLMs, Whisper, Azure ML]
+
+- title: Enterprise knowledge-graph platform
+  client: German Federal Ministry of Education, BDO Group
+  role: Lead ML Engineer / Architect
+  period: 2023 – 2024
+  summary: Intelligent search, personalised learning paths and decision support with private-cloud LLMs. The same technology was reused for tax form extraction.
+  highlights:
+    - Architecture and development lead for a fully auditable design used in several client deployments.
+    - Led a team of 5 that delivered 3 ML models end to end; clustering reduced the search space and improved retrieval.
+    - Private-cloud Llama 2 and Llama 3; RabbitMQ microservices with SSO; Docker builds 50% faster and unit tests 80% faster.
+  stack: [Python, FastAPI, BERT, Llama 2/3, MLflow, MinIO, Docker, Jenkins, MongoDB]
+
+- title: Lecture transcription service
+  client: Nanyang Technological University Singapore
+  role: ML Engineer
+  period: 2023
+  summary: Speech-to-text for full lecture videos using OpenAI Whisper.
+  highlights:
+    - RabbitMQ-based microservice handling 1,000+ concurrent requests.
+  stack: [Python, Whisper, RabbitMQ, Docker, Redis]
+
+- title: Patient record consolidation
+  client: Siemens Healthineers
+  role: ML Engineer
+  period: 2022 – 2023
+  summary: Patient data is fragmented across visits and sources. This system consolidates records into one patient history, towards a digital twin of the patient journey.
+  highlights:
+    - Co-developed the consolidation logic, reaching 80% accuracy.
+    - Med-BERT clinical text classification and NER, including patient name tracking.
+    - Led the extraction and integration pipeline, including HL7 v2 to FHIR mapping and clinical knowledge graphs.
+  stack: [Python, TensorFlow, Med-BERT, HL7 v2, FHIR]
+
+- title: Audio deep learning research
+  client: Fraunhofer IDMT
+  role: Research Associate
+  period: 2018 – 2022
+  summary: Applied deep learning for audio and music, transferred to industry clients.
+  highlights:
+    - Product owner for spectral pattern and temporal periodicity estimation.
+    - Temporal convolutional networks, CNNs, RNNs and Transformers; a novel contrastive loss that improved state-of-the-art classification.
+    - Improved in-house chord recognition and published the results.
+  stack: [Python, TensorFlow, PyTorch]
+
+- title: CAMAT, music analysis toolkit
+  client: University of Music Franz Liszt Weimar
+  role: Research Associate
+  period: 2021
+  summary: An open-source Python toolkit for parsing, visualising and statistically analysing digital sheet music, used in musicology research and teaching.
+  highlights:
+    - Sole developer; presented at DMRN+16, Queen Mary University of London.
+  stack: [Python, music21]
+  link: https://analyse.hfm-weimar.de/doku.php?id=en:camat

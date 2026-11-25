@@ -1,0 +1,45 @@
+---
+layout: default
+---
+{%- assign words = content | strip_html | number_of_words %}
+{%- assign minutes = words | divided_by: 220 | plus: 1 %}
+{%- assign first_tag = page.tags | first | default: "post" %}
+<article class="post">
+  <header class="band">
+  <div class="wrap page-head">
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>,
+      {{ minutes }} min read
+    </p>
+    <h1>{{ page.title }}</h1>
+    {%- if page.description %}
+    <p class="lede">{{ page.description }}</p>
+    {%- endif %}
+    {%- if page.tags.size > 0 %}
+    <ul class="tags">
+      {%- for tag in page.tags %}
+      <li><a class="tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">#{{ tag | slugify }}</a></li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </div>
+  </header>
+
+  <div class="wrap body">
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  <footer class="post-foot">
+    <p>Thoughts or questions? <a href="mailto:{{ site.author.email }}?subject={{ page.title | url_encode }}">Email me</a> or <a href="{{ '/talk/' | relative_url }}">book a chat</a>.</p>
+    <nav class="post-nav" aria-label="More posts">
+      {%- if page.previous %}
+      <a class="prev" href="{{ page.previous.url | relative_url }}"><span>Older</span>{{ page.previous.title }}</a>
+      {%- endif %}
+      {%- if page.next %}
+      <a class="next" href="{{ page.next.url | relative_url }}"><span>Newer</span>{{ page.next.title }}</a>
+      {%- endif %}
+    </nav>
+  </footer>
+  </div>
+</article>

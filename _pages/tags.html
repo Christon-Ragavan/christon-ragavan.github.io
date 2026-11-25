@@ -1,0 +1,19 @@
+---
+title: Tags
+permalink: /tags/
+---
+{%- assign tags = site.tags | sort %}
+<ul class="tag-index">
+  {%- for tag in tags %}
+  <li><a class="tag" href="#{{ tag[0] | slugify }}">#{{ tag[0] | slugify }} <span>{{ tag[1] | size }}</span></a></li>
+  {%- endfor %}
+</ul>
+
+{%- for tag in tags %}
+<section class="tag-group" id="{{ tag[0] | slugify }}">
+  <h2>#{{ tag[0] | slugify }}</h2>
+  {%- assign posts = tag[1] %}
+  {%- assign group_years = false %}
+  {% include post-list.html %}
+</section>
+{%- endfor %}

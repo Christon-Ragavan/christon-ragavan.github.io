@@ -1,0 +1,25 @@
+---
+title: Projects
+permalink: /projects/
+intro: Selected work from client projects and research. Problem, what I did, and the result.
+---
+<div class="projects">
+  {%- for p in site.data.projects %}
+  <article class="project">
+    <p class="project-meta"><span>{{ p.client }}</span> <time>{{ p.period }}</time></p>
+    <h2>{% if p.link %}<a href="{{ p.link }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h2>
+    <p class="project-role">{{ p.role }}</p>
+    <p>{{ p.summary }}</p>
+    {%- if p.highlights %}
+    <ul>
+      {%- for h in p.highlights %}
+      <li>{{ h }}</li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+    {%- if p.stack %}
+    <p class="stack"><span class="visually-hidden">Stack: </span>{{ p.stack | join: ", " }}</p>
+    {%- endif %}
+  </article>
+  {%- endfor %}
+</div>
