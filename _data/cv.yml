@@ -1,0 +1,103 @@
+# Everything on /cv/ comes from this file (publications live in publications.yml).
+# Highlights accept Markdown.
+
+summary: >-
+  Senior ML Engineer and solution architect with 8+ years of experience leading AI teams
+  and delivering production AI systems for aerospace, healthcare, public sector and
+  e-commerce clients: from a Databricks platform serving thousands of models to LLM-based
+  RAG and knowledge-graph systems. I also run project planning and use-case workshops with customers.
+
+experience:
+  - org: Cloudflight GmbH
+    place: Munich, Germany
+    roles:
+      - title: Senior Machine Learning Engineer
+        dates: Apr 2022 – present
+    groups:
+      - name: Aerospace client (engine manufacturer)
+        bullets:
+          - Lead AI-based failure diagnosis that validates engine alerts, reaching 80% accuracy and cutting manual review effort (90% of alerts are low priority).
+          - Architected a live engine health monitoring platform on Databricks (Spark, Delta Lake, Azure ML) ingesting 1,000+ sensor points per engine type every 15 minutes.
+          - Built a framework for fast development and deployment of one model per aircraft and engine combination.
+          - Delivered predictive maintenance with H3 geospatial feature engineering, plus anomaly detection on full-flight data.
+          - Built pipeline monitoring and observability; cut data loading time by 35% through Spark tuning.
+          - Established model-agnostic continuous training; mentored junior developers.
+      - name: Siemens Healthineers
+        bullets:
+          - Co-developed a patient data system that consolidates records into a unified patient history for clinicians, with 80% consolidation accuracy.
+          - Improved medical NLP with Med-BERT classification and NER, including patient name tracking.
+          - Led the extraction and integration pipeline, including HL7 v2 to FHIR mapping, and built clinical knowledge graphs.
+      - name: Enterprise knowledge-graph systems (German Federal Ministry of Education, BDO Group and others)
+        bullets:
+          - Led the architecture of a knowledge-graph platform for intelligent search, learning paths and decision support, with a fully auditable design adopted by several clients and reused for tax form extraction.
+          - Led a team of 5 delivering 3 AI models end to end, including BERT fine-tuning and clustering that improved retrieval efficiency.
+          - Deployed Llama 2 and Llama 3 in a private cloud for secure enterprise generative AI.
+          - Designed a RabbitMQ-based microservice architecture integrating AI modules, customer databases and SSO.
+          - Improved MLOps with MLflow and MinIO; cut Docker build time by 50% and unit-test time by 80%.
+      - name: WIRmachenDRUCK, NTU Singapore and others
+        bullets:
+          - "Built GenAI proofs of concept: a RAG chatbot and computer-vision particle counting (WIRmachenDRUCK), and email/voice-to-order with LLMs (Holz-Marberger)."
+          - Architected a Whisper-based speech-to-text service handling 1,000+ concurrent requests via RabbitMQ for NTU Singapore.
+          - Solution architect consultant for cloud migration and system integration across three companies.
+
+  - org: Fraunhofer Institute for Digital Media Technology (IDMT)
+    place: Ilmenau, Germany
+    roles:
+      - title: Research Associate (team of Prof. Karlheinz Brandenburg, inventor of the MP3 format)
+        dates: Oct 2020 – Mar 2022
+      - title: Student Research Assistant
+        dates: Apr 2018 – Sep 2020
+    bullets:
+      - Product owner and technical lead for two audio research technologies (harmony and temporal periodicity estimation), transferred to industry clients.
+      - Trained and delivered custom large-scale CNN, RNN and Transformer models for client projects in PyTorch and TensorFlow.
+      - Improved state-of-the-art classification with a novel contrastive learning loss; research in source separation and sound event detection.
+      - Supervised master's theses and mentored junior developers.
+
+  - org: University of Music Franz Liszt Weimar
+    place: Weimar, Germany
+    roles:
+      - title: Research Associate (with Prof. Dr. Martin Pfleiderer)
+        dates: Apr 2021 – Dec 2021
+    bullets:
+      - Sole developer of the open-source [CAMAT toolkit](https://analyse.hfm-weimar.de/doku.php?id=en:camat) (Computer-Assisted Music Analysis Toolkit).
+
+  - org: International Audio Laboratories Erlangen & Fraunhofer IIS
+    place: Erlangen, Germany
+    roles:
+      - title: Student Research Associate, AI (with Prof. Dr. Meinard Müller)
+        dates: Mar 2020 – Aug 2020
+    bullets:
+      - Developed a Python toolkit for AI-driven music analysis and visualization.
+
+  - org: Cultural Vistas
+    place: Washington DC & New York, USA
+    roles:
+      - title: Marketing Intern
+        dates: Mar 2016 – Nov 2016
+    bullets:
+      - Developed social media marketing strategies and managed media assets.
+
+education:
+  - degree: Research Associate, AI
+    school: TU Ilmenau
+    dates: Oct 2017 – Apr 2022
+  - degree: Master's in Media Technology
+    school: TU Ilmenau
+    dates: Apr 2017 – Sep 2020
+  - degree: B.Tech. in Electronics & Media
+    school: Karunya University, India
+    dates: Jun 2012 – May 2016
+
+certifications:
+  - name: "Microsoft Certified: Azure Data Engineer Associate"
+    year: 2024
+
+skills:
+  - area: AI & GenAI
+    list: Time series, generative AI, LLMs, RAG, GraphRAG, NLP, Hugging Face, LlamaIndex, LangChain, audio, computer vision
+  - area: Software
+    list: Python, FastAPI, PySpark, Docker, Jenkins, RabbitMQ, MongoDB, Neo4j, TensorFlow, PyTorch, MLflow, SQL, KQL
+  - area: Data & cloud
+    list: Databricks (Spark, Delta Lake), Azure (ML, Data Factory), AWS (S3, ECS), GCP (BigQuery), Terraform
+
+languages: English, German

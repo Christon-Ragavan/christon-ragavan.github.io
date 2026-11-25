@@ -1,7 +1,11 @@
-# main links
-main:
-
-  - title: "Projects"
-    url: /projects/
-  - title: "About"
-    url: /about/
+# Top navigation, in order.
+- title: Writing
+  url: /blog/
+- title: About
+  url: /about/
+- title: CV
+  url: /cv/
+- title: Projects
+  url: /projects/
+- title: Let's talk
+  url: /talk/

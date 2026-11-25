@@ -1,22 +1,29 @@
 ---
-layout: archive
+layout: default
 ---
+<section class="intro">
+  <img class="portrait" src="{{ site.author.photo | relative_url }}" width="240" height="240" alt="Portrait of {{ site.author.short_name }}">
+  <div class="intro-text">
+    {{ content }}
+    <p class="intro-actions">
+      <a class="button" href="{{ '/about/' | relative_url }}">More about me</a>
+      <a class="button quiet" href="{{ '/cv/' | relative_url }}">CV</a>
+    </p>
+  </div>
+</section>
 
-{{ content }}
+{% include signal.html %}
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
-
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
-{% endif %}
-
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% for post in posts %}
-    {% include archive-single.html type=entries_layout %}
-  {% endfor %}
-</div>
-
-{% include paginator.html %}
+<section class="latest" aria-labelledby="latest-title">
+  <div class="section-head">
+    <h2 id="latest-title">Latest writing</h2>
+    <a href="{{ '/blog/' | relative_url }}">All posts</a>
+  </div>
+  {%- assign posts = site.posts %}
+  {%- assign limit = 5 %}
+  {%- assign group_years = false %}
+  {% include post-list.html %}
+  {%- if site.posts.size == 0 %}
+  <p class="empty">First post coming soon.</p>
+  {%- endif %}
+</section>

@@ -1,0 +1,92 @@
+---
+title: CV
+permalink: /cv/
+---
+{%- assign cv = site.data.cv %}
+{%- assign pdf = site.static_files | where: "path", "/assets/files/cv.pdf" | first %}
+
+<p class="lede">{{ cv.summary }}</p>
+<p class="cv-actions">
+  {%- if pdf %}
+  <a class="button" href="{{ pdf.path | relative_url }}">Download PDF</a>
+  {%- endif %}
+  <a class="button quiet" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+</p>
+
+<section class="cv-section" aria-labelledby="experience">
+  <h2 id="experience">Experience</h2>
+  {%- for job in cv.experience %}
+  <div class="job">
+    <div class="job-head">
+      <h3>{{ job.org }}</h3>
+      <p class="place">{{ job.place }}</p>
+    </div>
+    {%- for role in job.roles %}
+    <p class="role"><span>{{ role.title }}</span> <time>{{ role.dates }}</time></p>
+    {%- endfor %}
+    {%- if job.groups %}
+    {%- for group in job.groups %}
+    <h4>{{ group.name }}</h4>
+    <ul>
+      {%- for item in group.bullets %}
+      <li>{{ item | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+      {%- endfor %}
+    </ul>
+    {%- endfor %}
+    {%- endif %}
+    {%- if job.bullets %}
+    <ul>
+      {%- for item in job.bullets %}
+      <li>{{ item | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </div>
+  {%- endfor %}
+</section>
+
+<section class="cv-section" aria-labelledby="publications">
+  <h2 id="publications">Publications</h2>
+  {%- for pub in site.data.publications %}
+  {%- assign prev_index = forloop.index0 | minus: 1 %}
+  {%- assign prev = site.data.publications[prev_index] %}
+  {%- if forloop.first or pub.year != prev.year %}
+  <h3 class="pub-year">{{ pub.year }}</h3>
+  {%- endif %}
+  <p class="pub">
+    {%- if pub.url %}<a href="{{ pub.url }}">{{ pub.title }}</a>{% else %}<span class="pub-title">{{ pub.title }}</span>{% endif %}<br>
+    <span class="pub-authors">{{ pub.authors | replace: "C.-R. Nadar", "<strong>C.-R. Nadar</strong>" }}</span><br>
+    <span class="pub-venue">{{ pub.venue }}</span>
+    {%- if pub.code %} <a href="{{ pub.code }}">Code</a>{% endif %}
+    {%- if pub.data %} <a href="{{ pub.data }}">Dataset</a>{% endif %}
+  </p>
+  {%- endfor %}
+</section>
+
+<section class="cv-section cv-grid" aria-labelledby="skills">
+  <div>
+    <h2 id="skills">Skills</h2>
+    <dl class="skills">
+      {%- for s in cv.skills %}
+      <dt>{{ s.area }}</dt>
+      <dd>{{ s.list }}</dd>
+      {%- endfor %}
+      <dt>Languages</dt>
+      <dd>{{ cv.languages }}</dd>
+    </dl>
+  </div>
+  <div>
+    <h2 id="education">Education</h2>
+    <ul class="plain">
+      {%- for e in cv.education %}
+      <li><strong>{{ e.degree }}</strong><br>{{ e.school }}, <time>{{ e.dates }}</time></li>
+      {%- endfor %}
+    </ul>
+    <h2 id="certifications">Certification</h2>
+    <ul class="plain">
+      {%- for c in cv.certifications %}
+      <li>{{ c.name }}, {{ c.year }}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

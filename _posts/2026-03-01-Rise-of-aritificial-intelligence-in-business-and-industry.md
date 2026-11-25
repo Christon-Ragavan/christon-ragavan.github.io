@@ -1,9 +1,8 @@
 ---
 title: "Artificial Intelligence (AI) in Business and Industry [in-progress]"
 date: 2026-03-01
-tags: [Predictive Maintenance, Deep Learning, Machine Learning]
-excerpt: "Business, Artificial Intelligence, Deep Learning, Machine Learning"
-mathjax: "true"
+tags: [AI in Business, Machine Learning]
+description: "A structured overview of where AI shows up across industries and business functions. Work in progress."
 ---
 
 # Introductions

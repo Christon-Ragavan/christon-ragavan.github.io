@@ -1,0 +1,46 @@
+# Publications, newest first. Grouped by year automatically on /cv/.
+# Add `url:` (paper link or https://doi.org/...) and it becomes a link.
+# Add `code:` or `data:` for extra links.
+
+- year: 2024
+  authors: M. Pfleiderer, E. Polyakov, C.-R. Nadar
+  title: "Analyse! Development and integration of software-based tools for musicology and music theory"
+  venue: "Innovation in Music: Technology and Creativity, Routledge, pp. 292–309"
+  url:
+
+- year: 2022
+  authors: C. Kunert, T. Schwandt, C.-R. Nadar, W. Broll
+  title: Neural network adaptation for depth sensor replication
+  venue: The Visual Computer, 1–11
+  url:
+  data:
+
+- year: 2022
+  authors: C.-R. Nadar, J. Abeßer, M. Taenzer
+  title: Towards interpreting and improving the latent space for musical chord recognition
+  venue: International Computer Music Conference (ICMC)
+  url:
+
+- year: 2021
+  authors: E. Poliakov, C.-R. Nadar
+  title: "CAMAT: Computer Assisted Music Analysis Toolkit"
+  venue: Digital Music Research Network workshop (DMRN+16), Queen Mary University of London
+  url:
+
+- year: 2021
+  authors: F. Bittner, J. Abeßer, C.-R. Nadar, H. Lukashevich, P. Kramer
+  title: Novel dataset for time-dependent harmonic similarity between chord sequences
+  venue: International Society for Music Information Retrieval Conference (ISMIR)
+  url:
+
+- year: 2021
+  authors: C.-R. Nadar, C. Kunert, T. Schwandt, W. Broll
+  title: Sensor simulation for monocular depth estimation using deep neural networks
+  venue: International Conference on Cyberworlds (CW)
+  url:
+
+- year: 2019
+  authors: C.-R. Nadar, J. Abeßer, S. Grollmisch
+  title: Towards CNN-based acoustic modelling of seventh chords for automatic chord recognition
+  venue: Sound and Music Computing Conference (SMC), Málaga, Spain
+  url:

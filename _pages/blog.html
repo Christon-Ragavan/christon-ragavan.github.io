@@ -1,0 +1,12 @@
+---
+title: Writing
+permalink: /blog/
+intro: Notes on machine learning, LLMs, data platforms and lessons from my work.
+---
+<p class="list-tools"><a href="{{ '/tags/' | relative_url }}">Browse by tag</a></p>
+{%- assign posts = site.posts %}
+{%- assign group_years = true %}
+{% include post-list.html %}
+{%- if site.posts.size == 0 %}
+<p class="empty">No posts yet. The first one is on its way.</p>
+{%- endif %}
