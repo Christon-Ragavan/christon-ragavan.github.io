@@ -1,0 +1,13 @@
+<div class="aside-card">
+  <img class="aside-photo small" src="{{ site.author.photo | relative_url }}" width="240" height="240" alt="Portrait of {{ site.author.short_name }}">
+  <p class="aside-title">{{ site.author.name }}</p>
+  <p class="aside-sub">{{ site.author.role }}, {{ site.author.location }}</p>
+  <p class="aside-actions">
+    {%- if site.booking_url %}
+    <a class="button" href="{{ site.booking_url }}">Book 30 minutes</a>
+    {%- else %}
+    <a class="button" href="mailto:{{ site.author.email }}?subject=Let's%20talk">Email me</a>
+    {%- endif %}
+  </p>
+  <p class="aside-sub">{{ site.author.email }}</p>
+</div>

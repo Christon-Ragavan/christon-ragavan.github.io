@@ -1,9 +1,8 @@
 ---
 title: About
 permalink: /about/
+aside: about
 ---
-
-<img class="about-photo" src="{{ site.author.photo | relative_url }}" width="240" height="240" alt="Portrait of Christon">
 
 I'm Christon, a machine learning engineer and solution architect based in Munich. For more than eight years I've been building AI systems that leave the notebook and run in production, and leading the teams that build them.
 
