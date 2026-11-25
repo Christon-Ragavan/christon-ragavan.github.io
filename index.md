@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Christon Ragavan
+title: Christon Nadar
 ---
 
 # Hi, I'm Christon.

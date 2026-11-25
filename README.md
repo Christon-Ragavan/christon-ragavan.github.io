@@ -1,6 +1,6 @@
 # christon-ragavan.github.io
 
-Personal site and blog of Christon Ragavan Nadar, built with Jekyll and hosted on GitHub Pages.
+Personal site and blog of Christon Nadar, built with Jekyll and hosted on GitHub Pages.
 No theme gem: all layouts and styles live in this repo, so nothing breaks when a theme updates.
 
 ## Write a new post
