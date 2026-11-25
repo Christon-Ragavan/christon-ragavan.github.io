@@ -17,13 +17,15 @@ permalink: /cv/
   <h2 id="experience">Experience</h2>
   {%- for job in cv.experience %}
   <div class="job">
-    <div class="job-head">
-      <h3>{{ job.org }}</h3>
-      <p class="place">{{ job.place }}</p>
+    <div class="job-top">
+      <div class="job-head">
+        <h3>{{ job.org }}</h3>
+        <p class="place">{{ job.place }}</p>
+      </div>
+      {%- for role in job.roles %}
+      <p class="role"><span>{{ role.title }}</span> <time>{{ role.dates }}</time></p>
+      {%- endfor %}
     </div>
-    {%- for role in job.roles %}
-    <p class="role"><span>{{ role.title }}</span> <time>{{ role.dates }}</time></p>
-    {%- endfor %}
     {%- if job.groups %}
     {%- for group in job.groups %}
     <h4>{{ group.name }}</h4>

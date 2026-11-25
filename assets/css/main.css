@@ -296,13 +296,14 @@ mjx-container { font-size: 105% !important; }
 .cv-section { margin-top: 3.5rem; }
 .cv-section > h2, .cv-grid h2 { font-size: 1.35rem; margin: 0 0 1.25rem; }
 .cv-section > h2::after, .cv-grid h2::after { content: ""; display: block; height: 4px; width: 2.5rem; margin-top: 0.5rem; border-radius: 4px; background: var(--sky-ink); }
-.job { margin-bottom: 2.25rem; }
+.job { margin-bottom: 2.75rem; }
+.job-top { background: linear-gradient(90deg, var(--sky), var(--ice)); border: 1px solid var(--rule); border-radius: 14px; padding: 1rem 1.25rem 0.9rem; margin-bottom: 0.5rem; }
 .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0 1rem; }
-.job-head h3 { margin: 0; font-size: 1.15rem; }
+.job-head h3 { margin: 0; font-size: 1.4rem; color: var(--ink); letter-spacing: -0.02em; }
 .place { margin: 0 !important; font: 0.9rem/1.4 var(--sans); color: var(--muted); }
-.role { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 1rem; margin: 0.2rem 0 0 !important; font: 0.98rem/1.45 var(--sans); }
+.role { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 1rem; margin: 0.3rem 0 0 !important; font: 500 1rem/1.45 var(--sans); }
 .role time, .plain time { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.job h4 { display: inline-block; margin: 1.1rem 0 0.35rem; font-size: 0.9rem; color: var(--sky-ink); background: var(--sky); padding: 0.35rem 0.75rem; border-radius: 999px; }
+.job h4 { margin: 1.4rem 0 0.25rem; font-size: 1rem; color: var(--sky-ink); }
 .job ul { margin: 0.5rem 0 0 !important; }
 .job li { font-size: 1.02rem; }
 .pub-year { display: inline-block; font-size: 0.9rem; color: var(--sky-ink); background: var(--ice); padding: 0.3rem 0.7rem; border-radius: 999px; margin: 1.5rem 0 0.75rem; }
