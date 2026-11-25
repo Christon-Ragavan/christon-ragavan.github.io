@@ -5,7 +5,7 @@ No theme gem: all layouts and styles live in this repo, so nothing breaks when a
 
 ## Write a new post
 
-1. Copy `_drafts/post-template.md` to `_posts/YYYY-MM-DD-short-title.md`.
+1. Copy `_drafts/post-template.md` to `_posts/YYYY/YYYY-MM-DD-short-title.md` (one folder per year, e.g. `_posts/2026/`).
 2. Fill in the front matter:
 
    ```yaml
@@ -21,6 +21,13 @@ No theme gem: all layouts and styles live in this repo, so nothing breaks when a
 4. Commit and push to `master`. GitHub Pages rebuilds the site in a minute or two.
 
 Unfinished posts can stay in `_drafts/`; they are never published.
+
+### Popular posts on the home page
+
+The home page shows posts three ways: **Latest**, **Popular** and **Topics** (filter by tag).
+To put a post under Popular, add `popular: 1`, `popular: 2` or `popular: 3` to its front matter
+(the number is its position). To take it off, delete the line. If no post has `popular`, the tab is hidden.
+Topics are built from the `tags` of your posts automatically.
 
 ## Math
 
