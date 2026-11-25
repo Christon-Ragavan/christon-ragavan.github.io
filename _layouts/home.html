@@ -14,16 +14,94 @@ layout: default
 
 {% include signal.html %}
 
-<section class="latest" aria-labelledby="latest-title">
+{%- comment -%}
+  Writing section with three views: Latest, Popular, Topics.
+  Popular = posts with `popular: 1`, `popular: 2`, `popular: 3` in their front matter (1 is shown first).
+  Without JavaScript, visitors simply see the latest posts.
+{%- endcomment -%}
+{%- assign latest_count = 5 %}
+{%- assign popular_posts = site.posts | where_exp: "p", "p.popular" %}
+{%- assign home_tags = site.tags | sort %}
+<section class="latest" aria-labelledby="writing-title">
   <div class="section-head">
-    <h2 id="latest-title">Latest writing</h2>
+    <h2 id="writing-title">Writing</h2>
     <a href="{{ '/blog/' | relative_url }}">All posts</a>
   </div>
+
+  <div class="views" role="tablist" aria-label="Show posts by" hidden>
+    <button type="button" role="tab" id="tab-latest" aria-selected="true" aria-controls="home-posts" data-view="latest">Latest</button>
+    {%- if popular_posts.size > 0 %}
+    <button type="button" role="tab" id="tab-popular" aria-selected="false" aria-controls="home-posts" data-view="popular" tabindex="-1">Popular</button>
+    {%- endif %}
+    {%- if home_tags.size > 0 %}
+    <button type="button" role="tab" id="tab-topics" aria-selected="false" aria-controls="home-posts" data-view="topics" tabindex="-1">Topics</button>
+    {%- endif %}
+  </div>
+
+  <div class="topic-filter" aria-label="Topics" hidden>
+    <button type="button" class="chip" aria-pressed="true" data-tag="">All</button>
+    {%- for tag in home_tags %}
+    <button type="button" class="chip" aria-pressed="false" data-tag="{{ tag[0] | slugify }}">#{{ tag[0] | slugify }} <span>{{ tag[1] | size }}</span></button>
+    {%- endfor %}
+  </div>
+
   {%- assign posts = site.posts %}
-  {%- assign limit = 5 %}
+  {%- assign show_first = latest_count %}
+  {%- assign list_id = "home-posts" %}
   {%- assign group_years = false %}
   {% include post-list.html %}
   {%- if site.posts.size == 0 %}
   <p class="empty">First post coming soon.</p>
   {%- endif %}
 </section>
+
+<script>
+{
+  const latestCount = {{ latest_count }};
+  const tabs = document.querySelector('.views');
+  const list = document.getElementById('home-posts');
+  if (tabs && list) {
+    const items = [...list.children];
+    const filter = document.querySelector('.topic-filter');
+    const chips = filter ? [...filter.querySelectorAll('.chip')] : [];
+    let view = 'latest', tag = '';
+
+    const show = () => {
+      items.forEach((li, i) => {
+        let visible = false, order = i;
+        if (view === 'latest') visible = i < latestCount;
+        if (view === 'popular') { visible = li.dataset.popular !== undefined; order = Number(li.dataset.popular) || 99; }
+        if (view === 'topics') visible = !tag || li.dataset.tags.split(' ').includes(tag);
+        li.hidden = !visible;
+        li.style.order = order;
+      });
+      filter.hidden = view !== 'topics';
+      tabs.querySelectorAll('[role=tab]').forEach(t => {
+        const on = t.dataset.view === view;
+        t.setAttribute('aria-selected', on);
+        t.tabIndex = on ? 0 : -1;
+      });
+      chips.forEach(c => c.setAttribute('aria-pressed', c.dataset.tag === tag));
+    };
+
+    tabs.addEventListener('click', e => {
+      const t = e.target.closest('[role=tab]');
+      if (t) { view = t.dataset.view; show(); }
+    });
+    tabs.addEventListener('keydown', e => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      const all = [...tabs.querySelectorAll('[role=tab]')];
+      const i = all.findIndex(t => t.dataset.view === view);
+      const next = all[(i + (e.key === 'ArrowRight' ? 1 : all.length - 1)) % all.length];
+      view = next.dataset.view; show(); next.focus();
+    });
+    if (filter) filter.addEventListener('click', e => {
+      const c = e.target.closest('.chip');
+      if (c) { tag = c.dataset.tag; show(); }
+    });
+
+    tabs.hidden = false;
+    show();
+  }
+}
+</script>

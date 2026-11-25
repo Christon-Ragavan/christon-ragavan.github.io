@@ -3,6 +3,7 @@ title: "Attention, one equation at a time"
 date: 2026-12-01
 tags: [LLMs, Machine Learning]
 description: "One or two sentences shown in post lists and when the link is shared."
+# popular: 1   # uncomment to list this post under "Popular" on the home page (1, 2 or 3 = its position)
 ---
 
 <!--

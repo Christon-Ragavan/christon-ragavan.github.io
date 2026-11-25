@@ -1,15 +1,18 @@
 {%- comment -%}
-  Lists posts. Set `posts` before including, and optionally `limit` and `group_years` (true/false).
+  Lists posts. Set `posts` before including, and optionally:
+  `limit` (stop after N posts), `show_first` (render all, hide the rest until a filter shows them)
+  and `group_years` (true/false).
 {%- endcomment -%}
-<ol class="post-list">
+<ol class="post-list"{% if list_id %} id="{{ list_id }}"{% endif %}>
   {%- for post in posts %}
   {%- if limit and forloop.index > limit %}{% break %}{% endif %}
+  {%- capture post_tags %}{% for t in post.tags %}{{ t | slugify }} {% endfor %}{% endcapture %}
   {%- assign year = post.date | date: "%Y" %}
   {%- assign newer_year = post.next.date | date: "%Y" %}
   {%- if group_years %}{% if forloop.first or year != newer_year %}
   <li class="year"><h2>{{ year }}</h2></li>
   {%- endif %}{% endif %}
-  <li class="post-item">
+  <li class="post-item" data-tags="{{ post_tags | strip }}"{% if post.popular %} data-popular="{{ post.popular }}"{% endif %}{% if show_first and forloop.index > show_first %} hidden{% endif %}>
     <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
     <div>
       <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
