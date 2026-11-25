@@ -1,18 +1,29 @@
 ---
 layout: default
 ---
-<section class="intro">
-  <img class="portrait" src="{{ site.author.photo | relative_url }}" width="240" height="240" alt="Portrait of {{ site.author.short_name }}">
-  <div class="intro-text">
-    {{ content }}
-    <p class="intro-actions">
-      <a class="button" href="{{ '/about/' | relative_url }}">More about me</a>
-      <a class="button quiet" href="{{ '/cv/' | relative_url }}">CV</a>
-    </p>
+<section class="hero band tint-sky">
+  <div class="wrap intro">
+    <img class="portrait" src="{{ site.author.photo | relative_url }}" width="240" height="240" alt="Portrait of {{ site.author.short_name }}">
+    <div class="intro-text">
+      {{ content }}
+      <p class="intro-actions">
+        <a class="button" href="{{ '/about/' | relative_url }}">More about me</a>
+        <a class="button quiet" href="{{ '/cv/' | relative_url }}">CV</a>
+      </p>
+    </div>
   </div>
+  <div class="wrap">{% include signal.html %}</div>
 </section>
 
-{% include signal.html %}
+<section class="wrap focus" aria-label="What I work on">
+  {%- for f in site.data.focus %}
+  <div class="focus-item tint-{{ f.tint }}">
+    <h2>{{ f.title }}</h2>
+    <p>{{ f.text }}</p>
+    <p class="focus-tools">{{ f.tools }}</p>
+  </div>
+  {%- endfor %}
+</section>
 
 {%- comment -%}
   Writing section with three views: Latest, Popular, Topics.
@@ -22,7 +33,7 @@ layout: default
 {%- assign latest_count = 5 %}
 {%- assign popular_posts = site.posts | where_exp: "p", "p.popular" %}
 {%- assign home_tags = site.tags | sort %}
-<section class="latest" aria-labelledby="writing-title">
+<section class="wrap latest" aria-labelledby="writing-title">
   <div class="section-head">
     <h2 id="writing-title">Writing</h2>
     <a href="{{ '/blog/' | relative_url }}">All posts</a>
@@ -41,7 +52,8 @@ layout: default
   <div class="topic-filter" aria-label="Topics" hidden>
     <button type="button" class="chip" aria-pressed="true" data-tag="">All</button>
     {%- for tag in home_tags %}
-    <button type="button" class="chip" aria-pressed="false" data-tag="{{ tag[0] | slugify }}">#{{ tag[0] | slugify }} <span>{{ tag[1] | size }}</span></button>
+    {%- assign tag_slug = tag[0] | slugify %}{%- assign c = site.data.tag_colors[tag_slug] %}{%- if c %}{% else %}{% assign c = tag_slug | size | modulo: 6 %}{% endif %}
+    <button type="button" class="chip tint-{{ c }}" aria-pressed="false" data-tag="{{ tag[0] | slugify }}">#{{ tag[0] | slugify }} <span>{{ tag[1] | size }}</span></button>
     {%- endfor %}
   </div>
 

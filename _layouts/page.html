@@ -1,14 +1,19 @@
 ---
 layout: default
 ---
+{%- comment -%} `tint` in a page's front matter picks its header colour: sky, mint, peach, lilac, butter or rose {%- endcomment -%}
 <article class="page">
-  <header class="page-head">
-    <h1>{{ page.title }}</h1>
-    {%- if page.intro %}
-    <p class="lede">{{ page.intro }}</p>
-    {%- endif %}
+  <header class="band tint-{{ page.tint | default: 'sky' }}">
+    <div class="wrap{% if page.wide %} wrap-wide{% endif %} page-head">
+      <h1>{{ page.title }}</h1>
+      {%- if page.intro %}
+      <p class="lede">{{ page.intro }}</p>
+      {%- endif %}
+    </div>
   </header>
-  <div class="prose">
-    {{ content }}
+  <div class="wrap{% if page.wide %} wrap-wide{% endif %} body">
+    <div class="prose">
+      {{ content }}
+    </div>
   </div>
 </article>

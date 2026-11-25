@@ -60,7 +60,11 @@ To turn math off for a page, set `math: false` in its front matter.
 | Let's talk page | `_pages/talk.md`; set `booking_url` in `_config.yml` for a booking button |
 | Name, email, LinkedIn, Scholar | `_config.yml` |
 | Navigation | `_data/navigation.yml` |
-| Colours and fonts | `assets/css/main.css` (top of the file) |
+| Colours and fonts | `assets/css/main.css` (variables at the top of the file) |
+| AI / Data / Cloud boxes on the home page | `_data/focus.yml` |
+| Tag colours | `_data/tag_colors.yml` |
+| Header colour of a page | `tint:` in the page's front matter (sky, mint, peach, lilac, butter, rose) |
+| Tagline (footer) | `tagline` in `_config.yml`; the home page line is in `index.md` |
 | Downloadable CV | put the PDF at `assets/files/cv.pdf`; the button on /cv/ appears automatically |
 
 ## Run it locally

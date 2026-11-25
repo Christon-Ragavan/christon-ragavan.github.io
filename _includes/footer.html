@@ -1,6 +1,9 @@
 <footer class="site-footer">
   <div class="wrap footer-row">
-    <p>&copy; {{ site.time | date: "%Y" }} {{ site.author.name }}</p>
+    <div>
+      <p class="footer-tagline">{{ site.author.tagline }}</p>
+      <p>&copy; {{ site.time | date: "%Y" }} {{ site.author.name }}</p>
+    </div>
     {% include links.html %}
   </div>
 </footer>

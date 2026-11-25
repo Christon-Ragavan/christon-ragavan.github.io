@@ -1,0 +1,12 @@
+# Colour for each tag (use the tag as it appears in the URL: lowercase, hyphens).
+# Options: sky, mint, peach, lilac, butter, rose. Tags not listed get a colour automatically.
+llms: lilac
+machine-learning: sky
+deep-learning: rose
+ai-in-business: peach
+predictive-maintenance: mint
+rag: lilac
+mlops: butter
+data-engineering: mint
+databricks: peach
+career: butter

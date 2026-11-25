@@ -1,0 +1,16 @@
+# The three areas shown on the home page, under the intro.
+# tint: sky, mint, peach, lilac, butter or rose
+- title: AI & GenAI
+  tint: lilac
+  text: LLMs, RAG and GraphRAG, NLP, time series, audio and computer vision, taken from proof of concept to production.
+  tools: PyTorch, TensorFlow, Hugging Face, LangChain, LlamaIndex, MLflow
+
+- title: Data
+  tint: sky
+  text: Platforms and pipelines for high-volume sensor and business data, with monitoring, observability and MLOps built in.
+  tools: Databricks, Spark, Delta Lake, SQL, MongoDB, Neo4j
+
+- title: Cloud
+  tint: mint
+  text: Azure, AWS and GCP architecture, private-cloud LLM deployments and microservices. Microsoft Certified Azure Data Engineer.
+  tools: Azure ML, Data Factory, AWS, BigQuery, Terraform, Docker
